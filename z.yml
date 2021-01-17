@@ -1,0 +1,16 @@
+---
+description: Most complete and small printf-like subsystem for embedded system.
+fullname: lib.xprintfc
+info:
+    chip_manufacturer: '-'
+    chip_name: '-'
+    name:  Library
+    type: util
+keywords:
+- printf
+- vbl_printf_stdout
+- quail
+title: xprintfc
+...
+B
+

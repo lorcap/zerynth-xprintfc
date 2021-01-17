@@ -1,0 +1,25 @@
+options:
+    XCFG_FORMAT_STDOUT_PORT:
+        help: >
+            Serial port number for standard output
+    XCFG_FORMAT_STATIC:
+        help: >
+            Define internal parameters as volatile for 8 bit cpu define XCFG_FORMAT_STATIC=static to reduce stack usage.
+    XCFG_FORMAT_FLOAT:
+        help: >
+            Define XCFG_FORMAT_FLOAT=0 to remove floating point support
+    XCFG_FORMAT_VA_COPY:
+        help: >
+            Detect support for va_copy this macro must be called for example in x86_64 machine to adjust the stack frame when an argument of va_list is passed over functions.
+    XCFG_FORMAT_LONG:
+        help: >
+            Define to 0 to remove support for long type (prefix l).
+    XCFG_FORMAT_LONGLONG:
+        help: >
+            Define to 0 to remove support for long long type (prefix ll).
+    XCFG_FORMAT_FLOAT_PREC:
+        help: >
+            Define to 1 to use internally float number instead of double.
+    XCFG_FORMAT_FLOAT_SPECIAL:
+        help: >
+            Define to 1 to support floating point special value as nan and infinite the default behavior is undefined if an invalid floating point number is used.

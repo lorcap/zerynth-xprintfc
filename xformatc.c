@@ -1014,3 +1014,36 @@ unsigned xvformat(void (*outchar)(void *,char),void *arg,const char * fmt,va_lis
 
 /*lint -restore */
 
+#if defined(XCFG_FORMAT_STDOUT_PORT)
+static void write_char (void *arg, char c)
+{
+    vhalSerialWrite(XCFG_FORMAT_STDOUT_PORT, &c, 1);
+    (void) arg;
+}
+
+unsigned xformatz (uint8_t *fmt, ...)
+{
+    va_list vlist;
+    unsigned count;
+
+    va_start(vlist, fmt);
+    count = xvformatz(fmt, vlist);
+    va_end(vlist);
+
+    return count;
+}
+
+unsigned xvformatz (uint8_t *fmt, va_list args)
+{
+    return xvformat(write_char, (void*)0, (const char*)fmt, args);
+}
+
+void vbl_printf_stdout (uint8_t *fmt, ...)
+{
+    va_list vlist;
+
+    va_start(vlist, fmt);
+    xvformatz(fmt, vlist);
+    va_end(vlist);
+}
+#endif
